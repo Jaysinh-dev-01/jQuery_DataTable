@@ -11,24 +11,26 @@
 
 <body>
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-md-10 col-sm-12">
             <div class="card shadow">
                 <div class="card-header text-center bg-dark text-light">
                     <?= heading("Users Details") ?>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped table-bordered" id="userTable">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Email</th>
-                                <th>City</th>
-                                <th>Address</th>
-                            </tr>
-                        </thead>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover table-sm" id="userTable">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,6 +43,7 @@
         $("#userTable").DataTable({
             processing: true,
             serverSide: true,
+            scrollY:450,
             ajax: {
                 url: "<?= site_url('dataTable/getUsers') ?>",
                 type: "POST",
